@@ -1,0 +1,496 @@
+.company-details-page .company-header {
+  background-color: #f8f9fa;
+  padding: 2rem 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.company-logo {
+  max-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.company-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.company-rating {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.reviews-count {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-right: 0.5rem;
+}
+
+.company-location {
+  color: #6c757d;
+}
+
+.contact-btn {
+  font-weight: 500;
+}
+
+/* Company Navigation */
+.company-nav {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 60px;
+  z-index: 100;
+}
+
+.company-tabs {
+  border-bottom: none;
+}
+
+.company-tabs .nav-link {
+  border: none;
+  font-weight: 500;
+  color: #495057;
+  padding: 1rem 1.5rem;
+}
+
+.company-tabs .nav-link.active {
+  color: #0066cc;
+  border-bottom: 2px solid #0066cc;
+  background: none;
+}
+
+/* Content Sections */
+.section-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+  color: #333;
+}
+
+/* Company Stats */
+.company-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+}
+
+.stat-label {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Services */
+.service-item {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.service-icon {
+  color: #0066cc;
+  margin-left: 0.75rem;
+}
+
+/* Gallery Preview */
+.gallery-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  position: relative;
+}
+
+.gallery-preview-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.gallery-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.show-more-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+}
+
+/* Contact Card */
+.contact-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0066cc;
+  margin-left: 1rem;
+}
+
+.whatsapp-icon {
+  color: #25D366;
+}
+
+.contact-item h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.contact-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  color: #0066cc;
+  font-size: 1.25rem;
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  background-color: #0066cc;
+  color: white;
+}
+
+/* Rating Stars */
+.rating-container {
+  direction: ltr;
+  text-align: left;
+}
+
+.rating-star {
+  color: #d9d9d9;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 0.25rem;
+  transition: color 0.2s;
+}
+
+.rating-star.active {
+  color: #ffc107;
+}
+
+.rating-star:hover {
+  color: #ffca2c;
+}
+
+/* Gallery Tab */
+.company-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.company-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.video-item {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-item iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Services Tab */
+.services-list {
+  margin-top: 1rem;
+}
+
+.service-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card .service-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.service-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Pricing Plans Tab */
+.pricing-plan {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.plan-header {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.plan-header h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.plan-price {
+  margin-top: 1rem;
+}
+
+.plan-price .price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0066cc;
+}
+
+.plan-price .period {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-right: 0.25rem;
+}
+
+.plan-features {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.plan-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-features li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.feature-icon {
+  color: #0066cc;
+  margin-left: 0.75rem;
+}
+
+.plan-footer {
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+}
+
+.select-plan-btn {
+  width: 100%;
+}
+
+/* Reviews Tab */
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rating-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-left: 1rem;
+}
+
+.rating-stars {
+  font-size: 1.25rem;
+}
+
+.total-reviews {
+  color: #6c757d;
+  margin-right: 0.5rem;
+}
+
+.reviews-list {
+  margin-top: 2rem;
+}
+
+.review-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.reviewer-info h5 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.review-date {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.review-rating {
+  font-size: 1rem;
+}
+
+.review-content {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.review-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.review-action-btn {
+  color: #6c757d;
+  padding: 0;
+}
+
+.review-action-btn:hover {
+  color: #0066cc;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .company-tabs .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .company-name {
+    font-size: 1.5rem;
+  }
+  
+  .company-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .company-tabs .nav-link {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+  }
+  
+  .contact-icon {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,133 @@
+.contact-page .page-banner {
+  background: linear-gradient(rgba(0, 102, 204, 0.8), rgba(0, 102, 204, 0.8));
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-page .page-banner h1 {
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Info Cards */
+.contact-info-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-info-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 102, 204, 0.1);
+  color: #0066cc;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.contact-info-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.contact-info-card p {
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+}
+
+/* Contact Form */
+.contact-form-card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form-card .form-control {
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+}
+
+.contact-form-card .form-control:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+.contact-form-card .btn-primary {
+  padding: 0.75rem 2.5rem;
+}
+
+/* Map */
+.map-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* WhatsApp Section */
+.contact-whatsapp {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.contact-whatsapp h4 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.whatsapp-btn {
+  padding: 0.75rem 2rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: #f8f9fa;
+}
+
+.faq-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #0066cc;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  .contact-info-card {
+    margin-bottom: 1.5rem;
+  }
+}

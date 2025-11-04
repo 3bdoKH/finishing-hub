@@ -1,0 +1,66 @@
+.login-page {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 70px);
+    padding: 3rem 0;
+}
+
+.login-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.login-tabs .nav-link {
+    font-weight: 500;
+    color: #6c757d;
+    padding: 0.75rem 1rem;
+    border: none;
+}
+
+.login-tabs .nav-link.active {
+    color: #0066cc;
+    font-weight: 600;
+    border-bottom: 2px solid #0066cc;
+    background-color: transparent;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+}
+
+.forgot-password-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    color: #0066cc;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+.back-to-login {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.back-to-login:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .login-page {
+        padding: 1.5rem 0;
+    }
+}

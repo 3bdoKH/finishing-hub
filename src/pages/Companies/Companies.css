@@ -1,0 +1,127 @@
+.companies-page .page-banner {
+    background: linear-gradient(rgba(0, 102, 204, 0.8), rgba(0, 102, 204, 0.8));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.companies-page .page-banner h1 {
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.search-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+}
+
+.search-card input {
+    border-radius: 0px 10px 10px 0px !important;
+    outline: none !important;
+}
+
+.search-card button {
+    border-radius: 10px 0px 0px 10px !important;
+}
+
+.filter-toggle-btn {
+    width: 100%;
+}
+
+.filter-options {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.company-list-card {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.company-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.company-logo {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.company-rating {
+    background-color: #fff9eb;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.company-description {
+    height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.company-details {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.results-count {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Pagination styling */
+.pagination {
+    gap: 0.25rem;
+}
+
+.pagination .page-link {
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    color: #0066cc;
+}
+
+.pagination .active .page-link {
+    background-color: #0066cc;
+    border-color: #0066cc;
+    color: white;
+}
+
+.pagination .disabled .page-link {
+    color: #6c757d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .company-logo-container {
+        max-height: 200px;
+    }
+
+    .company-logo {
+        height: auto;
+        max-height: 180px;
+    }
+}

@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# تشطيب - منصة خدمات التشطيب والتجديد
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## نظرة عامة
 
-## Available Scripts
+منصة تشطيب هي موقع إلكتروني متخصص في عرض شركات التشطيب والتجديد في مصر. يسمح الموقع للشركات بإنشاء ملفات تعريف وعرض خدماتها ومعرض أعمالها، بينما يمكن للمستخدمين البحث عن شركات التشطيب والمقارنة بينها.
 
-In the project directory, you can run:
+## الميزات الرئيسية
 
-### `npm start`
+- **واجهة مستخدم عربية**: الموقع متاح باللغة العربية بالكامل مع دعم للغة العربية وتنسيق RTL
+- **معرض شركات التشطيب**: استعراض الشركات وتصفيتها حسب الفئات والمناطق والتقييمات
+- **ملفات تعريفية مفصلة**: معلومات تفصيلية عن كل شركة تشمل الصور والفيديوهات والخدمات والأسعار
+- **نظام تقييم ومراجعة**: إمكانية تقييم الشركات وكتابة المراجعات من قبل العملاء
+- **مدونة**: مقالات متخصصة في مجال التشطيب والديكور
+- **لوحات تحكم**: لوحات تحكم خاصة للمدير والشركات لإدارة المحتوى
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## التقنيات المستخدمة
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React.js**: إطار عمل JavaScript لبناء واجهات المستخدم
+- **React Router**: للتنقل بين صفحات التطبيق
+- **React Bootstrap**: مكتبة مكونات التصميم
+- **Axios**: للتعامل مع طلبات API
+- **React i18next**: لدعم اللغة العربية والتنسيق RTL
+- **React Context API**: لإدارة حالة التطبيق
+- **FontAwesome**: مكتبة الأيقونات
+- **Slick Carousel**: لعرض معارض الصور
+- **JWT**: للمصادقة وإدارة الجلسات
 
-### `npm test`
+## هيكل المشروع
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+frontend/
+├── public/
+│   ├── images/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Header/
+│   │   │   ├── Footer/
+│   │   │   └── Layout.jsx
+│   │   └── ...
+│   ├── pages/
+│   │   ├── Home/
+│   │   ├── About/
+│   │   ├── Companies/
+│   │   ├── CompanyDetails/
+│   │   ├── Blog/
+│   │   ├── BlogPost/
+│   │   ├── Contact/
+│   │   ├── Login/
+│   │   └── NotFound/
+│   ├── services/
+│   │   └── api.js
+│   ├── context/
+│   │   └── AuthContext.js
+│   ├── utils/
+│   │   ├── i18n.js
+│   │   └── PrivateRoute.js
+│   ├── assets/
+│   │   ├── images/
+│   │   └── css/
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+└── package.json
+```
 
-### `npm run build`
+## التثبيت والتشغيل
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### المتطلبات الأساسية
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 أو أعلى)
+- npm (v7 أو أعلى)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### خطوات التثبيت
 
-### `npm run eject`
+1. قم بنسخ المستودع:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/your-repo/tashteeb-companies.git
+cd tashteeb-companies/frontend
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. قم بتثبيت الاعتماديات:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. قم بإنشاء ملف `.env` في المجلد الرئيسي للمشروع وأضف المتغيرات البيئية:
 
-## Learn More
+```
+REACT_APP_API_BASE_URL=http://localhost:5000/api
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. قم بتشغيل التطبيق في وضع التطوير:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+5. قم ببناء التطبيق للإنتاج:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run build
+```
 
-### Analyzing the Bundle Size
+## واجهات المستخدم الرئيسية
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **الصفحة الرئيسية**: عرض الشركات المميزة وميزات الموقع الرئيسية
+2. **صفحة الشركات**: قائمة بجميع الشركات مع إمكانية البحث والتصفية
+3. **صفحة تفاصيل الشركة**: عرض تفاصيل شركة محددة بما في ذلك المعرض والخدمات والأسعار والتقييمات
+4. **صفحة المدونة**: عرض المقالات المتعلقة بالتشطيب والديكور
+5. **صفحة الاتصال**: نموذج للتواصل مع إدارة الموقع
+6. **صفحة تسجيل الدخول**: تسجيل دخول الشركات والمديرين
 
-### Making a Progressive Web App
+## إضافات مستقبلية
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- نظام حجز وطلب عروض أسعار
+- نظام دردشة مباشرة بين العملاء والشركات
+- نظام مقارنة بين الشركات
+- دعم للمحفظات الإلكترونية والدفع الإلكتروني
+- نظام إشعارات للشركات والمستخدمين
