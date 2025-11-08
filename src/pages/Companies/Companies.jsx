@@ -8,7 +8,8 @@ import {
     faPhone, faChevronLeft, faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import './Companies.css';
-import { getMediaUrl } from '../../utils/config';
+import { getMediaUrl, getApiBaseUrl } from '../../utils/config';
+import { publicService } from '../../services/api';
 const Companies = () => {
     const { t } = useTranslation();
     const [companies, setCompanies] = useState([]);
@@ -23,26 +24,49 @@ const Companies = () => {
     const itemsPerPage = 8;
 
     // Categories list
-    const categories = useMemo(() => ([
-        { id: 'all', name: 'كل الفئات' },
-        { id: 'painting', name: 'دهانات' },
-        { id: 'flooring', name: 'أرضيات' },
-        { id: 'kitchen', name: 'مطابخ' },
-        { id: 'bathroom', name: 'حمامات' },
-        { id: 'electrical', name: 'كهرباء' },
-        { id: 'plumbing', name: 'سباكة' },
-        { id: 'carpentry', name: 'نجارة' }
-    ]), []);
-
+    const [categories, setCategories] = useState([]);
+    const fetchCategories = async () => {
+        try {
+            const response = await publicService.getCategories();
+            if (response.success) {
+                setCategories(response.data);
+            }
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    };
+    useEffect(() => {
+        fetchCategories();
+    }, []);
     // Locations list
     const locations = useMemo(() => ([
         { id: 'all', name: 'كل المحافظات' },
         { id: 'cairo', name: 'القاهرة' },
         { id: 'giza', name: 'الجيزة' },
         { id: 'alexandria', name: 'الإسكندرية' },
-        { id: 'mansoura', name: 'المنصورة' },
+        { id: 'dakahlia', name: 'الدقهلية' },
+        { id: 'beheira', name: 'البحيرة' },
+        { id: 'kafr_el_sheikh', name: 'كفر الشيخ' },
+        { id: 'gharbia', name: 'الغربية' },
+        { id: 'menoufia', name: 'المنوفية' },
+        { id: 'sharqia', name: 'الشرقية' },
+        { id: 'damietta', name: 'دمياط' },
+        { id: 'port_said', name: 'بورسعيد' },
+        { id: 'ismailia', name: 'الإسماعيلية' },
+        { id: 'suez', name: 'السويس' },
+        { id: 'matrouh', name: 'مطروح' },
+        { id: 'north_sinai', name: 'شمال سيناء' },
+        { id: 'south_sinai', name: 'جنوب سيناء' },
+        { id: 'beni_suef', name: 'بني سويف' },
+        { id: 'fayoum', name: 'الفيوم' },
+        { id: 'minya', name: 'المنيا' },
+        { id: 'assiut', name: 'أسيوط' },
+        { id: 'sohag', name: 'سوهاج' },
+        { id: 'qena', name: 'قنا' },
+        { id: 'luxor', name: 'الأقصر' },
         { id: 'aswan', name: 'أسوان' },
-        { id: 'luxor', name: 'الأقصر' }
+        { id: 'red_sea', name: 'البحر الأحمر' },
+        { id: 'new_valley', name: 'الوادي الجديد' }
     ]), []);
 
     // Ratings list
@@ -57,66 +81,36 @@ const Companies = () => {
         // Fetch companies from the API
         const fetchCompanies = async () => {
             try {
-                const response = await fetch(`https://winchelmohandes-furniture.online/api/public/companies`);
+                // Build query parameters
+                const params = new URLSearchParams();
+                if (categoryFilter && categoryFilter !== '' && categoryFilter !== 'all') {
+                    params.append('category', categoryFilter);
+                }
+
+                const url = `${getApiBaseUrl()}/public/companies${params.toString() ? '?' + params.toString() : ''}`;
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error('Failed to fetch companies');
                 }
-
                 const data = await response.json();
-                console.log(data);
                 if (data.success && Array.isArray(data.data)) {
                     setCompanies(data.data);
-                    setFilteredCompanies(data.data);
-                } else {
-                    // If no companies returned or error, use mock data for demo
-                    const mockCompanies = Array(20).fill().map((_, idx) => ({
-                        id: idx + 1,
-                        name: `شركة ${idx + 1} للتشطيبات`,
-                        description: 'شركة متخصصة في تشطيبات الشقق والفلل والمكاتب بأعلى جودة',
-                        logo: `/sample/company${(idx % 4) + 1}.jpg`,
-                        rating: (Math.random() * 2 + 3).toFixed(1), // Random rating between 3.0-5.0
-                        location: locations[Math.floor(Math.random() * (locations.length - 1)) + 1].name,
-                        categories: [
-                            categories[Math.floor(Math.random() * (categories.length - 1)) + 1].id,
-                            categories[Math.floor(Math.random() * (categories.length - 1)) + 1].id
-                        ],
-                        phone: '01234567890',
-                        address: 'شارع التحرير، القاهرة'
-                    }));
-                    setCompanies(mockCompanies);
-                    setFilteredCompanies(mockCompanies);
+                    // Don't set filteredCompanies here - let the filter effect handle it
                 }
             } catch (error) {
                 console.error("Error fetching companies:", error);
-                // Use mock data as fallback
-                const mockCompanies = Array(20).fill().map((_, idx) => ({
-                    id: idx + 1,
-                    name: `شركة ${idx + 1} للتشطيبات`,
-                    description: 'شركة متخصصة في تشطيبات الشقق والفلل والمكاتب بأعلى جودة',
-                    logo: `/sample/company${(idx % 4) + 1}.jpg`,
-                    rating: (Math.random() * 2 + 3).toFixed(1), // Random rating between 3.0-5.0
-                    location: locations[Math.floor(Math.random() * (locations.length - 1)) + 1].name,
-                    categories: [
-                        categories[Math.floor(Math.random() * (categories.length - 1)) + 1].id,
-                        categories[Math.floor(Math.random() * (categories.length - 1)) + 1].id
-                    ],
-                    phone: '01234567890',
-                    address: 'شارع التحرير، القاهرة'
-                }));
-                setCompanies(mockCompanies);
-                setFilteredCompanies(mockCompanies);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchCompanies();
-    }, [locations, categories]);
+    }, [categoryFilter]);
 
     // Filter companies based on search and filters
     useEffect(() => {
         let result = companies;
-
+        console.log(companies)
         // Apply search
         if (search) {
             result = result.filter(company => {
@@ -127,19 +121,15 @@ const Companies = () => {
             });
         }
 
-        // Apply category filter
-        if (categoryFilter && categoryFilter !== 'all') {
-            result = result.filter(company =>
-                Array.isArray(company.categories) && company.categories.includes(categoryFilter)
-            );
-        }
+        // Category filter is now handled server-side via API query parameter
+        // No need to filter client-side for category since API already filtered it
 
         // Apply location filter
         if (locationFilter && locationFilter !== 'all') {
             const locationObj = locations.find(loc => loc.id === locationFilter);
             if (locationObj) {
                 result = result.filter(company => {
-                    const location = (company.address || company.location || '').toLowerCase();
+                    const location = (company.city || company.region || company.address || '').toLowerCase();
                     return location.includes(locationObj.name.toLowerCase());
                 });
             }
@@ -148,14 +138,14 @@ const Companies = () => {
         // Apply rating filter
         if (ratingFilter && ratingFilter !== 'all') {
             result = result.filter(company => {
-                const rating = parseFloat(company.rating || 0);
+                const rating = parseFloat(company.avg_rating || 0);
                 return rating >= parseInt(ratingFilter);
             });
         }
 
         setFilteredCompanies(result);
         setCurrentPage(1); // Reset to first page on filter change
-    }, [search, categoryFilter, locationFilter, ratingFilter, companies, locations]);
+    }, [search, locationFilter, ratingFilter, companies, locations]);
 
     // Pagination
     const totalPages = Math.ceil(filteredCompanies.length / itemsPerPage);
@@ -209,6 +199,7 @@ const Companies = () => {
                                                 value={categoryFilter}
                                                 onChange={(e) => setCategoryFilter(e.target.value)}
                                             >
+                                                <option value="">كل الفئات</option>
                                                 {categories.map(category => (
                                                     <option key={category.id} value={category.id}>{category.name}</option>
                                                 ))}
@@ -282,7 +273,7 @@ const Companies = () => {
                                                             <div className="d-flex justify-content-between">
                                                                 <Card.Title>{company.company_name}</Card.Title>
                                                                 <span className="company-rating">
-                                                                    <FontAwesomeIcon icon={faStar} className="text-warning" /> {company.rating}
+                                                                    <FontAwesomeIcon icon={faStar} className="text-warning" /> {company.avg_rating}
                                                                 </span>
                                                             </div>
                                                             <Card.Text className="company-description">

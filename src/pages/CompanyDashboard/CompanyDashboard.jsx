@@ -12,6 +12,34 @@ import { getMediaUrl } from '../../utils/config';
 import './CompanyDashboard.css';
 
 const CompanyDashboard = () => {
+  const locations = [
+    { id: 'cairo', name: 'القاهرة' },
+    { id: 'giza', name: 'الجيزة' },
+    { id: 'alexandria', name: 'الإسكندرية' },
+    { id: 'dakahlia', name: 'الدقهلية' },
+    { id: 'beheira', name: 'البحيرة' },
+    { id: 'kafr_el_sheikh', name: 'كفر الشيخ' },
+    { id: 'gharbia', name: 'الغربية' },
+    { id: 'menoufia', name: 'المنوفية' },
+    { id: 'sharqia', name: 'الشرقية' },
+    { id: 'damietta', name: 'دمياط' },
+    { id: 'port_said', name: 'بورسعيد' },
+    { id: 'ismailia', name: 'الإسماعيلية' },
+    { id: 'suez', name: 'السويس' },
+    { id: 'matrouh', name: 'مطروح' },
+    { id: 'north_sinai', name: 'شمال سيناء' },
+    { id: 'south_sinai', name: 'جنوب سيناء' },
+    { id: 'beni_suef', name: 'بني سويف' },
+    { id: 'fayoum', name: 'الفيوم' },
+    { id: 'minya', name: 'المنيا' },
+    { id: 'assiut', name: 'أسيوط' },
+    { id: 'sohag', name: 'سوهاج' },
+    { id: 'qena', name: 'قنا' },
+    { id: 'luxor', name: 'الأقصر' },
+    { id: 'aswan', name: 'أسوان' },
+    { id: 'red_sea', name: 'البحر الأحمر' },
+    { id: 'new_valley', name: 'الوادي الجديد' }
+  ]
   const navigate = useNavigate();
   const { logout } = useAuth();
 
@@ -647,12 +675,15 @@ const CompanyDashboard = () => {
                         <Col md={4}>
                           <Form.Group className="mb-3">
                             <Form.Label>المدينة</Form.Label>
-                            <Form.Control
-                              type="text"
+                            <Form.Select
                               value={profileForm.city}
                               onChange={(e) => setProfileForm({ ...profileForm, city: e.target.value })}
                               disabled={!isEditingProfile}
-                            />
+                            >
+                              {locations.map((location) => (
+                                <option key={location.id} value={location.name}>{location.name}</option>
+                              ))}
+                            </Form.Select>
                           </Form.Group>
                         </Col>
                         <Col md={4}>

@@ -87,7 +87,35 @@ const Home = () => {
         { id: 3, icon: faCertificate, title: 'ضمان الجودة', desc: 'التزام بالمعايير العالمية' },
         { id: 4, icon: faCheck, title: 'دعم متواصل', desc: 'فريق دعم على مدار الساعة' }
     ];
-    const topCities = ['القاهرة', 'الجيزة', 'الإسكندرية', 'المنصورة', 'طنطا', 'أسيوط'];
+    const topCities = [
+        "القاهرة",
+        "الجيزة",
+        "القليوبية",
+        "الإسكندرية",
+        "البحيرة",
+        "مطروح",
+        "دمياط",
+        "الدقهلية",
+        "كفر الشيخ",
+        "الغربية",
+        "المنوفية",
+        "الشرقية",
+        "بورسعيد",
+        "الإسماعيلية",
+        "السويس",
+        "شمال سيناء",
+        "جنوب سيناء",
+        "بني سويف",
+        "الفيوم",
+        "المنيا",
+        "أسيوط",
+        "سوهاج",
+        "قنا",
+        "الأقصر",
+        "أسوان",
+        "البحر الأحمر",
+        "الوادي الجديد"
+    ];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -195,13 +223,34 @@ const Home = () => {
             {
                 breakpoint: 992,
                 settings: {
-                    slidesToShow: 2
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: true,
+                    infinite: true,
+                    autoplay: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: true,
+                    infinite: true,
+                    autoplay: true
                 }
             },
             {
                 breakpoint: 430,
                 settings: {
-                    slidesToShow: 1
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                    infinite: true,
+                    autoplay: true
                 }
             }
         ]
@@ -251,7 +300,7 @@ const Home = () => {
                         <h3 className="sponsors-title mb-4">رعاة الموقع</h3>
                         <div className="sponsors-logos">
                             <div className="sponsor-item">
-                                <img src={bannerImage} alt="Sponsor" className="sponsor-logo" />
+                                <img src={bannerImage} alt="Sponsor" className="sponsor-logo" onClick={() => window.open('https://emereld-marketing.online', '_blank')} />
                             </div>
                         </div>
                     </div>
