@@ -119,31 +119,38 @@ const Companies = () => {
 
         // Apply search
         if (search) {
-            result = result.filter(company =>
-                company.name.toLowerCase().includes(search.toLowerCase()) ||
-                company.description.toLowerCase().includes(search.toLowerCase())
-            );
+            result = result.filter(company => {
+                const name = (company.company_name || company.name || '').toLowerCase();
+                const description = (company.description || '').toLowerCase();
+                const searchLower = search.toLowerCase();
+                return name.includes(searchLower) || description.includes(searchLower);
+            });
         }
 
         // Apply category filter
         if (categoryFilter && categoryFilter !== 'all') {
             result = result.filter(company =>
-                company.categories.includes(categoryFilter)
+                Array.isArray(company.categories) && company.categories.includes(categoryFilter)
             );
         }
 
         // Apply location filter
         if (locationFilter && locationFilter !== 'all') {
-            result = result.filter(company =>
-                company.location.toLowerCase().includes(locations.find(loc => loc.id === locationFilter).name.toLowerCase())
-            );
+            const locationObj = locations.find(loc => loc.id === locationFilter);
+            if (locationObj) {
+                result = result.filter(company => {
+                    const location = (company.address || company.location || '').toLowerCase();
+                    return location.includes(locationObj.name.toLowerCase());
+                });
+            }
         }
 
         // Apply rating filter
         if (ratingFilter && ratingFilter !== 'all') {
-            result = result.filter(company =>
-                parseFloat(company.rating) >= parseInt(ratingFilter)
-            );
+            result = result.filter(company => {
+                const rating = parseFloat(company.rating || 0);
+                return rating >= parseInt(ratingFilter);
+            });
         }
 
         setFilteredCompanies(result);
