@@ -60,6 +60,7 @@ const Blog = () => {
     <div className="blog-page">
       <div className="page-banner">
         <h1>{t('blog')}</h1>
+        <p className="banner-subtitle">اقرأ أحدث المقالات والنصائح في عالم التشطيب والديكور</p>
       </div>
 
       <Container className="py-5">

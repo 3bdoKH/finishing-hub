@@ -310,9 +310,9 @@ const Home = () => {
             {/* Categories Section */}
             <section className="categories-section py-5">
                 <Container>
-                    <div className="d-flex justify-content-between align-items-center mb-3">
-                        <h2 className="section-title mb-0">الفئات</h2>
-                        <Link to="/companies" className="text-decoration-none small fw-semibold">عرض جميع الشركات</Link>
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">تصفح حسب الفئة</h2>
+                        <p className="section-subtitle text-muted">اختر الخدمة التي تبحث عنها من بين مجموعة متنوعة من فئات التشطيب</p>
                     </div>
                     <Row className="g-3 mt-1">
                         {(categories || []).slice(0, 12).map((cat) => (
@@ -333,12 +333,21 @@ const Home = () => {
                             </Col>
                         )}
                     </Row>
+                    <div className="text-center mt-5">
+                        <Link to="/companies" className="btn btn-view-all">
+                            عرض جميع الشركات
+                            <FontAwesomeIcon icon={faArrowLeft} className="ms-2" />
+                        </Link>
+                    </div>
                 </Container>
             </section>
 
             <section className="featured-section py-5">
                 <Container>
-                    <h2 className="section-title">{t('featuredCompanies')}</h2>
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">{t('featuredCompanies')}</h2>
+                        <p className="section-subtitle text-muted">اكتشف أفضل شركات التشطيب المميزة والموثوقة</p>
+                    </div>
                     {loading ? (
                         <div className="text-center py-5">
                             <div className="spinner-border text-primary" role="status">
@@ -372,9 +381,10 @@ const Home = () => {
                                     </div>
                                 ))}
                             </Slider>
-                            <div className="text-center mt-4">
-                                <Link to="/companies" className="btn btn-outline-primary">
+                            <div className="text-center mt-5">
+                                <Link to="/companies" className="btn btn-view-all-outline">
                                     {t('viewAll')}
+                                    <FontAwesomeIcon icon={faArrowLeft} className="ms-2" />
                                 </Link>
                             </div>
                         </>
@@ -385,6 +395,10 @@ const Home = () => {
             {/* Trust Badges Section */}
             <section className="trust-section py-5">
                 <Container>
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">لماذا تختار منصتنا؟</h2>
+                        <p className="section-subtitle text-muted">نوفر لك تجربة موثوقة وآمنة للعثور على أفضل شركات التشطيب</p>
+                    </div>
                     <Row className="g-4">
                         {trustBadges.map((badge) => (
                             <Col key={badge.id} xs={6} md={3}>
@@ -448,7 +462,10 @@ const Home = () => {
             {/* Services Section */}
             <section className="services-section py-5 bg-light">
                 <Container>
-                    <h2 className="section-title">خدماتنا</h2>
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">خدماتنا المتميزة</h2>
+                        <p className="section-subtitle text-muted">نقدم مجموعة شاملة من خدمات التشطيب والديكور</p>
+                    </div>
                     <Row className="g-4">
                         <Col md={4}>
                             <div className="service-card text-center p-4">
@@ -484,38 +501,44 @@ const Home = () => {
             {/* How It Works Section */}
             <section className="how-it-works-section py-5">
                 <Container>
-                    <h2 className="section-title">كيف تعمل منصتنا؟</h2>
-                    <Row className="g-4 mt-1">
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">كيف تعمل منصتنا؟</h2>
+                        <p className="section-subtitle text-muted">ثلاث خطوات بسيطة للوصول إلى أفضل شركات التشطيب</p>
+                    </div>
+                    <Row className="g-4">
                         <Col md={4}>
-                            <Card className="h-100 text-center p-3">
+                            <Card className="h-100 text-center p-4 how-it-works-card">
                                 <Card.Body>
-                                    <div className="mb-3 text-primary">
+                                    <div className="step-number mb-3">01</div>
+                                    <div className="step-icon mb-4">
                                         <FontAwesomeIcon icon={faSearch} size="2x" />
                                     </div>
-                                    <h5>ابحث وقارن</h5>
-                                    <p className="mb-0">استكشف أفضل شركات التشطيبات وقارن التقييمات والخدمات والأسعار.</p>
+                                    <h5 className="fw-bold mb-3">ابحث وقارن</h5>
+                                    <p className="mb-0 text-muted">استكشف أفضل شركات التشطيبات وقارن التقييمات والخدمات والأسعار.</p>
                                 </Card.Body>
                             </Card>
                         </Col>
                         <Col md={4}>
-                            <Card className="h-100 text-center p-3">
+                            <Card className="h-100 text-center p-4 how-it-works-card">
                                 <Card.Body>
-                                    <div className="mb-3 text-success">
+                                    <div className="step-number mb-3">02</div>
+                                    <div className="step-icon mb-4">
                                         <FontAwesomeIcon icon={faPhone} size="2x" />
                                     </div>
-                                    <h5>تواصل بسهولة</h5>
-                                    <p className="mb-0">تواصل مباشرة مع الشركة عبر الهاتف أو واتساب لطلب عرض سعر.</p>
+                                    <h5 className="fw-bold mb-3">تواصل بسهولة</h5>
+                                    <p className="mb-0 text-muted">تواصل مباشرة مع الشركة عبر الهاتف أو واتساب لطلب عرض سعر.</p>
                                 </Card.Body>
                             </Card>
                         </Col>
                         <Col md={4}>
-                            <Card className="h-100 text-center p-3">
+                            <Card className="h-100 text-center p-4 how-it-works-card">
                                 <Card.Body>
-                                    <div className="mb-3 text-warning">
+                                    <div className="step-number mb-3">03</div>
+                                    <div className="step-icon mb-4">
                                         <FontAwesomeIcon icon={faCheck} size="2x" />
                                     </div>
-                                    <h5>اختَر ونفّذ</h5>
-                                    <p className="mb-0">اختَر الأنسب وابدأ التنفيذ بثقة اعتمادًا على تقييمات العملاء.</p>
+                                    <h5 className="fw-bold mb-3">اختَر ونفّذ</h5>
+                                    <p className="mb-0 text-muted">اختَر الأنسب وابدأ التنفيذ بثقة اعتمادًا على تقييمات العملاء.</p>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -526,7 +549,10 @@ const Home = () => {
             {/* Browse by City Section */}
             <section className="browse-city-section py-5 bg-light">
                 <Container>
-                    <h2 className="section-title">تصفح الشركات حسب المدينة</h2>
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">تصفح الشركات حسب المدينة</h2>
+                        <p className="section-subtitle text-muted">اختر مدينتك واعثر على أفضل الشركات القريبة منك</p>
+                    </div>
                     <Row className="g-3 mt-1">
                         {topCities.map((city) => (
                             <Col key={city} xs={6} md={4} lg={3}>
@@ -547,7 +573,10 @@ const Home = () => {
             {/* Latest Reviews Section */}
             <section className="testimonials-section py-5">
                 <Container>
-                    <h2 className="section-title">أحدث التقييمات</h2>
+                    <div className="text-center mb-5">
+                        <h2 className="section-title mb-3">أحدث التقييمات</h2>
+                        <p className="section-subtitle text-muted">اقرأ آراء العملاء الذين جربوا خدمات شركاتنا</p>
+                    </div>
                     <Slider dots arrows={false} autoplay rtl slidesToShow={3} slidesToScroll={1}
                         responsive={[{ breakpoint: 992, settings: { slidesToShow: 2 } }, { breakpoint: 576, settings: { slidesToShow: 1 } }]}>
                         {latestReviews.map((rev) => (

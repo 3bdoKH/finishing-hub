@@ -47,6 +47,7 @@ const About = () => {
         <Row className="mb-5">
           <Col lg={12} className="text-center mb-4">
             <h2 className="section-title">قيمنا</h2>
+            <p className="section-subtitle">المبادئ التي نلتزم بها في كل ما نقدمه من خدمات</p>
           </Col>
           <Col md={3}>
             <div className="value-item text-center">

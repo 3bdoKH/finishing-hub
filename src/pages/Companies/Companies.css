@@ -1,77 +1,224 @@
 .companies-page .page-banner {
-    background: linear-gradient(rgba(0, 102, 204, 0.8), rgba(0, 102, 204, 0.8));
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 3rem 0;
+    padding: 5rem 0;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.companies-page .page-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(30px);
+    }
 }
 
 .companies-page .page-banner h1 {
-    font-weight: 700;
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+    font-size: 3rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.banner-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
 }
 
 .search-card {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: none;
-    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border: none !important;
+    border-radius: 24px !important;
+    background: #ffffff;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-card:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
 }
 
 .search-card input {
-    border-radius: 0px 10px 10px 0px !important;
+    border-radius: 0px 16px 16px 0px !important;
     outline: none !important;
+    border: 2px solid #f1f5f9 !important;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.search-card input:focus {
+    border-color: #ff6b35 !important;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1) !important;
 }
 
 .search-card button {
-    border-radius: 10px 0px 0px 10px !important;
+    border-radius: 16px 0px 0px 16px !important;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    border: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.25);
+}
+
+.search-card button:hover {
+    transform: translateX(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
 }
 
 .filter-toggle-btn {
     width: 100%;
+    padding: 14px 30px;
+    border-radius: 16px !important;
+    font-weight: 700;
+    border: 2px solid #e2e8f0 !important;
+    transition: all 0.3s ease;
+}
+
+.filter-toggle-btn:hover {
+    border-color: #ff6b35 !important;
+    background: rgba(255, 107, 53, 0.05) !important;
+    color: #ff6b35 !important;
 }
 
 .filter-options {
-    border-top: 1px solid #eee;
-    padding-top: 1rem;
-    margin-top: 1rem;
+    border-top: 2px solid #f1f5f9;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.filter-options label {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.filter-options select {
+    border-radius: 12px;
+    border: 2px solid #f1f5f9;
+    padding: 12px 16px;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.filter-options select:focus {
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
 
 .company-list-card {
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 24px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #f1f5f9 !important;
+    background: #ffffff;
+    position: relative;
+}
+
+.company-list-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #ff6b35 0%, #f7931e 100%);
+    transition: height 0.4s ease;
+    z-index: 1;
+}
+
+.company-list-card:hover::before {
+    height: 100%;
 }
 
 .company-list-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 107, 53, 0.3) !important;
 }
 
 .company-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
 }
 
 .company-logo {
     width: 100%;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.company-list-card:hover .company-logo {
+    transform: scale(1.05);
+}
+
+.company-list-card .card-title {
+    font-weight: 800;
+    color: #1e293b;
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
 }
 
 .company-rating {
-    background-color: #fff9eb;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 0.875rem;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    padding: 0.5rem 0.875rem;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #2d3436;
+    box-shadow: 0 2px 8px rgba(253, 203, 110, 0.3);
+    white-space: nowrap;
 }
 
 .company-description {
@@ -81,41 +228,147 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
 }
 
 .company-details {
-    font-size: 0.9rem;
-    color: #6c757d;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.company-details p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.company-details svg {
+    color: #ff6b35;
+}
+
+.company-list-card .badge {
+    padding: 0.5rem 0.875rem;
+    border-radius: 12px !important;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 2px solid #e2e8f0 !important;
+    transition: all 0.3s ease;
+}
+
+.company-list-card:hover .badge {
+    border-color: rgba(255, 107, 53, 0.3) !important;
+    background: rgba(255, 107, 53, 0.05) !important;
+}
+
+.company-list-card .btn-outline-primary {
+    border: 2px solid #ff6b35;
+    color: #ff6b35;
+    font-weight: 700;
+    border-radius: 16px;
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.company-list-card .btn-outline-primary:hover {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
 }
 
 .results-count {
-    color: #6c757d;
-    font-size: 0.9rem;
+    color: #64748b;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background: #f8fafc;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border-right: 4px solid #ff6b35;
 }
 
 /* Pagination styling */
 .pagination {
-    gap: 0.25rem;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
 .pagination .page-link {
-    border-radius: 4px;
-    border: 1px solid #dee2e6;
-    color: #0066cc;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    padding: 10px 18px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.pagination .page-link:hover {
+    border-color: #ff6b35;
+    background: rgba(255, 107, 53, 0.05);
+    color: #ff6b35;
+    transform: translateY(-2px);
 }
 
 .pagination .active .page-link {
-    background-color: #0066cc;
-    border-color: #0066cc;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    border-color: transparent;
     color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .pagination .disabled .page-link {
-    color: #6c757d;
+    color: #cbd5e1;
+    border-color: #f1f5f9;
+    background: #f8fafc;
+}
+
+/* Loading Spinner */
+.spinner-border {
+    width: 4rem;
+    height: 4rem;
+    border-width: 0.4rem;
+    color: #ff6b35 !important;
 }
 
 /* Responsive adjustments */
+@media (max-width: 991px) {
+    .companies-page .page-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .company-list-card .card-title {
+        font-size: 1.2rem;
+    }
+}
+
 @media (max-width: 767px) {
+    .companies-page .page-banner {
+        padding: 4rem 0;
+    }
+
+    .companies-page .page-banner h1 {
+        font-size: 2rem;
+    }
+
+    .search-card {
+        border-radius: 20px !important;
+    }
+
+    .search-card input,
+    .search-card button {
+        border-radius: 12px !important;
+    }
+
+    .filter-toggle-btn {
+        margin-top: 1rem;
+    }
+
     .company-logo-container {
         max-height: 200px;
     }
@@ -123,5 +376,13 @@
     .company-logo {
         height: auto;
         max-height: 180px;
+    }
+
+    .company-list-card .card-title {
+        font-size: 1.1rem;
+    }
+
+    .results-count {
+        font-size: 0.95rem;
     }
 }

@@ -158,6 +158,7 @@ const Companies = () => {
         <div className="companies-page">
             <div className="page-banner">
                 <h1>{t('companies')}</h1>
+                <p className="banner-subtitle">اكتشف أفضل شركات التشطيب والديكور في مصر</p>
             </div>
 
             <Container className="py-5">
