@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faStar, faArrowLeft, faArrowRight, faMapMarkerAlt, faCheck, faPhone, faShieldAlt, faAward, faCertificate, faChevronDown, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faStar, faArrowLeft, faArrowRight, faMapMarkerAlt, faCheck, faPhone, faShieldAlt, faAward, faCertificate, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import './Home.css';
 import { getApiBaseUrl, getMediaUrl } from '../../utils/config';
 import { publicService, blogService } from '../../services/api';
