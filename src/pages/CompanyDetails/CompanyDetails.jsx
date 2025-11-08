@@ -21,8 +21,12 @@ const CompanyDetails = () => {
   const [name, setName] = useState('');
   const [showImageModal, setShowImageModal] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  // scroll to top
   useEffect(() => {
-    // Fetch company details from API
+    window.scrollTo(0, 0);
+  }, []);
+  // Fetch company details from API
+  useEffect(() => {
     const fetchCompanyDetails = async () => {
       try {
         const response = await publicService.getCompanyDetails(id);

@@ -36,6 +36,9 @@ const Companies = () => {
         }
     };
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    useEffect(() => {
         fetchCategories();
     }, []);
     // Locations list
@@ -77,8 +80,8 @@ const Companies = () => {
         { id: '3', name: '3 نجوم وأعلى' }
     ];
 
+    // Fetch companies from the API
     useEffect(() => {
-        // Fetch companies from the API
         const fetchCompanies = async () => {
             try {
                 // Build query parameters

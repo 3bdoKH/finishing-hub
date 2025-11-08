@@ -15,7 +15,11 @@ const Blog = () => {
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  // fetch blog posts 
   useEffect(() => {
     const fetchBlogPosts = async () => {
       const data = await blogService.getBlogPosts();

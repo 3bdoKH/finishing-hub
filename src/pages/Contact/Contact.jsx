@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +13,11 @@ import './Contact.css';
 
 const Contact = () => {
   const { t } = useTranslation();
+
+  // scroll to top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const initialValues = {
     name: '',
@@ -67,8 +72,7 @@ const Contact = () => {
                 <FontAwesomeIcon icon={faPhone} />
               </div>
               <h4>هاتف</h4>
-              <p>+20 123 456 7890</p>
-              <p>+20 123 456 7891</p>
+              <p>+20 103 401 6811</p>
             </div>
           </Col>
           <Col md={3}>
@@ -201,7 +205,7 @@ const Contact = () => {
                 variant="success"
                 size="lg"
                 className="whatsapp-btn"
-                href="https://wa.me/201234567890"
+                href="https://wa.me/+201034016811"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -16,7 +16,6 @@ const Header = () => {
         <Container>
           <Navbar.Brand as={Link} to="/" className="logo">
             <img src={logo} alt="دليل التشطيب" className="logo-img" />
-            {/* <span className="logo-text">دليل التشطيب</span> */}
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
@@ -34,9 +33,6 @@ const Header = () => {
             </Nav>
             <Nav>
               <NavDropdown title={<span><FontAwesomeIcon icon={faUser} /> {t('login')}</span>} id="login-dropdown">
-                <NavDropdown.Item as={Link} to="/login/admin" onClick={() => setExpanded(false)}>
-                  {t('adminLogin')}
-                </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/login/company" onClick={() => setExpanded(false)}>
                   {t('companyLogin')}
                 </NavDropdown.Item>

@@ -52,7 +52,6 @@ const Home = () => {
             comment: 'أسعار مناسبة مقابل جودة عالية جدًا.',
         },
     ]);
-
     const faqs = [
         {
             id: 1,
@@ -80,7 +79,6 @@ const Home = () => {
             answer: 'يمكنك التسجيل من خلال صفحة "انضم إلينا" أو التواصل معنا مباشرة. سيقوم فريقنا بمراجعة طلبك والتواصل معك خلال 24 ساعة.'
         }
     ];
-
     const trustBadges = [
         { id: 1, icon: faShieldAlt, title: 'شركات موثوقة', desc: '100% معتمدة ومفحوصة' },
         { id: 2, icon: faAward, title: 'أفضل الأسعار', desc: 'مقارنة وعروض حصرية' },
@@ -116,7 +114,11 @@ const Home = () => {
         "البحر الأحمر",
         "الوادي الجديد"
     ];
-
+    // scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    // fetch data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -314,7 +316,7 @@ const Home = () => {
                         <h2 className="section-title mb-3">تصفح حسب الفئة</h2>
                         <p className="section-subtitle text-muted">اختر الخدمة التي تبحث عنها من بين مجموعة متنوعة من فئات التشطيب</p>
                     </div>
-                    <Row className="g-3 mt-1">
+                    <Row className="g-3 mt-1" style={{ justifyContent: 'center' }}>
                         {(categories || []).slice(0, 12).map((cat) => (
                             <Col key={cat.id} xs={6} sm={4} md={3} lg={2}>
                                 <Link to={`/companies?category=${cat.id}`} className="text-decoration-none">
