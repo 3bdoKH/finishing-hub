@@ -61,6 +61,35 @@ const CompanyDashboard = () => {
   const [pricingForm, setPricingForm] = useState({ title: '', description: '', price_per_meter: '', pros: [] });
   const [newPro, setNewPro] = useState('');
 
+  // Helper to check if pest control category is selected
+  const isPestControlSelected = () => {
+    const pestControlCategory = allCategories.find(cat => cat.name === 'مكافحة حشرات');
+    return pestControlCategory && selectedCategoryIds.includes(pestControlCategory.id);
+  };
+
+  // Handle category checkbox change
+  const handleCategoryChange = (categoryId, isChecked) => {
+    const pestControlCategory = allCategories.find(cat => cat.name === 'مكافحة حشرات');
+
+    if (isChecked) {
+      // If checking pest control category, clear all other selections
+      if (pestControlCategory && categoryId === pestControlCategory.id) {
+        setSelectedCategoryIds([categoryId]);
+      }
+      // If checking another category while pest control is selected, replace pest control
+      else if (isPestControlSelected()) {
+        setSelectedCategoryIds([categoryId]);
+      }
+      // Otherwise, add to selection
+      else {
+        setSelectedCategoryIds([...selectedCategoryIds, categoryId]);
+      }
+    } else {
+      // If unchecking, remove from selection
+      setSelectedCategoryIds(selectedCategoryIds.filter(id => id !== categoryId));
+    }
+  };
+
   // Password Change
   const [passwordForm, setPasswordForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
 
@@ -973,15 +1002,40 @@ const CompanyDashboard = () => {
                     <Card.Body>
                       <Form.Group className="mb-3">
                         <Form.Label>اختر الفئات</Form.Label>
-                        <Form.Select multiple value={selectedCategoryIds} onChange={(e) => {
-                          const options = Array.from(e.target.selectedOptions);
-                          setSelectedCategoryIds(options.map(o => Number(o.value)));
+                        <div className="categories-checkbox-list" style={{
+                          maxHeight: '300px',
+                          overflowY: 'auto',
+                          border: '1px solid #dee2e6',
+                          borderRadius: '0.25rem',
+                          padding: '0.75rem'
                         }}>
-                          {allCategories.map(cat => (
-                            <option key={cat.id} value={cat.id}>{cat.name}</option>
-                          ))}
-                        </Form.Select>
-                        <Form.Text className="text-muted">امسك Ctrl/⌘ لاختيار أكثر من فئة</Form.Text>
+                          {allCategories.map(cat => {
+                            const pestControlCategory = allCategories.find(c => c.name === 'مكافحة حشرات');
+                            const isPestControl = cat.name === 'مكافحة حشرات';
+                            const isPestControlChecked = pestControlCategory && selectedCategoryIds.includes(pestControlCategory.id);
+                            const isDisabled = !isPestControl && isPestControlChecked;
+
+                            return (
+                              <Form.Check
+                                key={cat.id}
+                                type="checkbox"
+                                id={`category-${cat.id}`}
+                                label={cat.name}
+                                checked={selectedCategoryIds.includes(cat.id)}
+                                disabled={isDisabled}
+                                onChange={(e) => handleCategoryChange(cat.id, e.target.checked)}
+                                className="mb-2"
+                                style={{
+                                  opacity: isDisabled ? 0.5 : 1,
+                                  cursor: isDisabled ? 'not-allowed' : 'pointer'
+                                }}
+                              />
+                            );
+                          })}
+                        </div>
+                        <Form.Text className="text-muted">
+                          <strong>ملاحظة:</strong> فئة "مكافحة حشرات" لا يمكن اختيارها مع فئات أخرى
+                        </Form.Text>
                       </Form.Group>
                       <Button variant="primary" onClick={async () => {
                         setLoading(true);
