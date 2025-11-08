@@ -196,6 +196,57 @@
   transform: translateY(-3px);
 }
 
+/* Sponsors Banner Section */
+.sponsors-banner-section {
+  background: #E6EAF8;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sponsors-banner-content {
+  text-align: center;
+}
+
+.sponsors-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.sponsors-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.sponsor-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sponsor-item:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.sponsor-logo {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.3);
+  transition: filter 0.3s ease;
+}
+
+.sponsor-item:hover .sponsor-logo {
+  filter: grayscale(0);
+}
+
 /* Categories */
 .categories-section {
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);

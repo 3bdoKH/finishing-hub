@@ -8,6 +8,7 @@ import { faSearch, faStar, faArrowLeft, faArrowRight, faMapMarkerAlt, faCheck, f
 import './Home.css';
 import { getApiBaseUrl, getMediaUrl } from '../../utils/config';
 import { publicService, blogService } from '../../services/api';
+import bannerImage from '../../media/banner.png';
 const Home = () => {
     const { t } = useTranslation();
     const [featuredCompanies, setFeaturedCompanies] = useState([]);
@@ -240,6 +241,20 @@ const Home = () => {
                             </div>
                         </Col>
                     </Row>
+                </Container>
+            </section>
+
+            {/* Sponsors Banner Section */}
+            <section className="sponsors-banner-section py-4">
+                <Container>
+                    <div className="sponsors-banner-content">
+                        <h3 className="sponsors-title mb-4">رعاة الموقع</h3>
+                        <div className="sponsors-logos">
+                            <div className="sponsor-item">
+                                <img src={bannerImage} alt="Sponsor" className="sponsor-logo" />
+                            </div>
+                        </div>
+                    </div>
                 </Container>
             </section>
 
