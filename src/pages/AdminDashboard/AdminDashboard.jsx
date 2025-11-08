@@ -453,22 +453,22 @@ const AdminDashboard = () => {
                 </div>
 
                 <Nav className="flex-column sidebar-nav">
-                    <Nav.Link className={activeSection === 'overview' ? 'active' : ''} onClick={() => setActiveSection('overview')}>
+                    <Nav.Link className={activeSection === 'overview' ? 'active admin-nav-link' : 'admin-nav-link'} onClick={() => setActiveSection('overview')}>
                         <FontAwesomeIcon icon={faChartLine} className="me-2" />نظرة عامة
                     </Nav.Link>
-                    <Nav.Link className={activeSection === 'companies' ? 'active' : ''} onClick={() => setActiveSection('companies')}>
+                    <Nav.Link className={activeSection === 'companies' ? 'active admin-nav-link' : 'admin-nav-link'} onClick={() => setActiveSection('companies')}>
                         <FontAwesomeIcon icon={faBuilding} className="me-2" />إدارة الشركات
                     </Nav.Link>
-                    <Nav.Link className={activeSection === 'reviews' ? 'active' : ''} onClick={() => setActiveSection('reviews')}>
+                    <Nav.Link className={activeSection === 'reviews' ? 'active admin-nav-link' : 'admin-nav-link'} onClick={() => setActiveSection('reviews')}>
                         <FontAwesomeIcon icon={faComments} className="me-2" />المراجعات
                     </Nav.Link>
-                    <Nav.Link className={activeSection === 'messages' ? 'active' : ''} onClick={() => setActiveSection('messages')}>
+                    <Nav.Link className={activeSection === 'messages' ? 'active admin-nav-link' : 'admin-nav-link'} onClick={() => setActiveSection('messages')}>
                         <FontAwesomeIcon icon={faEnvelope} className="me-2" />الرسائل
                     </Nav.Link>
-                    <Nav.Link className={activeSection === 'blog' ? 'active' : ''} onClick={() => setActiveSection('blog')}>
+                    <Nav.Link className={activeSection === 'blog' ? 'active admin-nav-link' : 'admin-nav-link'} onClick={() => setActiveSection('blog')}>
                         <FontAwesomeIcon icon={faBlog} className="me-2" />المدونة
                     </Nav.Link>
-                    <Nav.Link className={activeSection === 'settings' ? 'active' : ''} onClick={() => setActiveSection('settings')}>
+                    <Nav.Link className={activeSection === 'settings' ? 'active admin-nav-link' : 'admin-nav-link'} onClick={() => setActiveSection('settings')}>
                         <FontAwesomeIcon icon={faCog} className="me-2" />الإعدادات
                     </Nav.Link>
                 </Nav>
