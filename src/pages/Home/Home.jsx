@@ -113,6 +113,35 @@ const Home = () => {
 
     // Counter animation effect
     useEffect(() => {
+        const animateCounters = () => {
+            const duration = 2000;
+            const steps = 60;
+            const stepDuration = duration / steps;
+
+            let currentStep = 0;
+            const timer = setInterval(() => {
+                currentStep++;
+                const progress = currentStep / steps;
+
+                setAnimatedStats({
+                    companies_count: Math.floor((stats?.companies || 0) * progress),
+                    categories_count: Math.floor((stats?.services || 0) * progress),
+                    reviews_count: Math.floor((stats?.reviews || 0) * progress),
+                    cities_count: Math.floor((stats?.cities || 0) * progress)
+                });
+
+                if (currentStep >= steps) {
+                    clearInterval(timer);
+                    setAnimatedStats({
+                        companies_count: stats?.companies || 0,
+                        categories_count: stats?.services || 0,
+                        reviews_count: stats?.reviews || 0,
+                        cities_count: stats?.cities || 0
+                    });
+                }
+            }, stepDuration);
+        };
+
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting && !hasAnimated && stats) {
@@ -134,35 +163,6 @@ const Home = () => {
             }
         };
     }, [stats, hasAnimated]);
-
-    const animateCounters = () => {
-        const duration = 2000;
-        const steps = 60;
-        const stepDuration = duration / steps;
-
-        let currentStep = 0;
-        const timer = setInterval(() => {
-            currentStep++;
-            const progress = currentStep / steps;
-
-            setAnimatedStats({
-                companies_count: Math.floor((stats?.companies || 0) * progress),
-                categories_count: Math.floor((stats?.services || 0) * progress),
-                reviews_count: Math.floor((stats?.reviews || 0) * progress),
-                cities_count: Math.floor((stats?.cities || 0) * progress)
-            });
-
-            if (currentStep >= steps) {
-                clearInterval(timer);
-                setAnimatedStats({
-                    companies_count: stats?.companies_count || 0,
-                    categories_count: stats?.categories_count || 0,
-                    reviews_count: stats?.reviews_count || 0,
-                    cities_count: stats?.cities_count || 0
-                });
-            }
-        }, stepDuration);
-    };
 
     const handleNewsletterSubmit = async (e) => {
         e.preventDefault();
